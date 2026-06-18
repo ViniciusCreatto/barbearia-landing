@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"/>
   <title>Barbearia Noir | Elegância Urbana</title>
   <meta name="description" content="Barbearia Noir — corte masculino de excelência em Piracicaba/SP. Atendimento por hora marcada, sem fila. Agende seu horário."/>
   
@@ -18,22 +18,28 @@
   <!-- Favicon -->
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   
-  <!-- Google Fonts -->
+  <!-- Preconnect for font domains -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Optimized Google Fonts - Only necessary weights with display=optional to prevent CLS -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant:wght@600;700&family=Inter:wght@500;600&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant:wght@600;700&family=Inter:wght@500;600&display=optional"></noscript>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="css/global.css">
-  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/global.css?v=1.0.0">
+  <link rel="stylesheet" href="css/layout.css?v=1.0.0">
 </head>
 <body>
 
+  <!-- Skip to main content link for accessibility -->
+  <a href="#main-content" class="skip-link" style="position: absolute; top: -40px; left: 0; background: var(--accent); color: var(--bg); padding: 8px 16px; z-index: 1001; transition: top 0.3s;">Pular para o conteúdo principal</a>
+
   <!-- ═══ NAVBAR ═══ -->
-  <nav class="navbar">
+  <nav class="navbar" aria-label="Navegação principal">
     <div class="navbar-content">
       <a href="#" class="navbar-logo">Barbearia Noir</a>
-      <div class="navbar-links">
+      <div class="navbar-links" role="navigation">
         <a href="#servicos">Serviços</a>
         <a href="#ambiente">Ambiente</a>
         <a href="#sobre">Sobre</a>
@@ -41,7 +47,7 @@
         <a href="#depoimentos">Depoimentos</a>
         <a href="#" data-whatsapp-link class="btn navbar-btn">Agendar</a>
       </div>
-      <button class="navbar-toggle" aria-label="Menu">
+      <button class="navbar-toggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="navbar-links">
         <span></span>
         <span></span>
         <span></span>
@@ -49,17 +55,20 @@
     </div>
   </nav>
 
+  <!-- ═══ MAIN CONTENT ═══ -->
+  <main id="main-content">
+  
   <!-- ═══ HERO ═══ -->
-  <section class="hero">
+  <section class="hero" aria-labelledby="hero-heading">
     <div class="hero-content">
       <div class="hero-badge">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <circle cx="12" cy="12" r="10"/>
           <polyline points="12 6 12 12 16 14"/>
         </svg>
         Sem fila · Atendimento por hora marcada
       </div>
-      <h1 class="hero-headline">Não é só um corte. É como você se apresenta ao mundo.</h1>
+      <h1 id="hero-heading" class="hero-headline">Não é só um corte. É como você se apresenta ao mundo.</h1>
       <p class="hero-sub">Elegância urbana para homens que valorizam cada detalhe.</p>
       <a href="#" data-whatsapp-link class="btn" target="_blank" rel="noopener noreferrer" aria-label="Agendar horário pelo WhatsApp">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -71,48 +80,49 @@
   </section>
 
   <!-- ═══ SERVIÇOS ═══ -->
-  <section class="servicos" id="servicos">
+  <section class="servicos" id="servicos" aria-labelledby="servicos-heading">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Serviços</h2>
+        <h2 id="servicos-heading" class="section-title">Serviços</h2>
       </div>
       <div class="servicos-grid">
-        <div class="servico-card fade-in">
+        <article class="servico-card fade-in">
           <h3>Corte Masculino</h3>
           <div class="servico-preco">R$ 65</div>
           <p>Corte preciso com acabamento perfeito. Inclui lavagem e finalização.</p>
-        </div>
-        <div class="servico-card fade-in delay-1">
+        </article>
+        <article class="servico-card fade-in delay-1">
           <h3>Barba Completa</h3>
           <div class="servico-preco">R$ 45</div>
           <p>Barboterapia com toalha quente, modelagem e hidratação.</p>
-        </div>
-        <div class="servico-card fade-in delay-2">
+        </article>
+        <article class="servico-card fade-in delay-2">
           <h3>Corte + Barba</h3>
           <div class="servico-preco">R$ 100</div>
           <p>Combo completo para renovar do topo ao queixo. Economize R$ 10.</p>
-        </div>
-        <div class="servico-card fade-in delay-3">
+        </article>
+        <article class="servico-card fade-in delay-3">
           <h3>Hidratação Capilar</h3>
           <div class="servico-preco">R$ 55</div>
           <p>Tratamento profundo para revitalizar e dar brilho aos fios.</p>
-        </div>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- ═══ AMBIENTE ═══ -->
-  <section class="ambiente" id="ambiente">
+  <section class="ambiente" id="ambiente" aria-labelledby="ambiente-heading">
     <div class="ambiente-content">
-      <h2>Um espaço pensado para homens que valorizam cada detalhe</h2>
+      <h2 id="ambiente-heading">Um espaço pensado para homens que valorizam cada detalhe</h2>
       <div class="ambiente-line"></div>
       <p>Design contemporâneo, iluminação sofisticada e um ambiente onde tempo é respeitado. Aqui você não é mais um número — é um cliente que merece atenção exclusiva.</p>
     </div>
   </section>
 
   <!-- ═══ SOBRE ═══ -->
-  <section class="sobre" id="sobre">
+  <section class="sobre" id="sobre" aria-labelledby="sobre-heading">
     <div class="sobre-content">
+      <h2 id="sobre-heading" class="visually-hidden">Sobre a Barbearia Noir</h2>
       <p class="sobre-text">Mais de 5 anos cuidando do visual de quem não abre mão de qualidade. Cada profissional é especialista em sua área — do corte clássico ao design de barba moderno.</p>
     </div>
     <div class="sobre-stats">
@@ -132,79 +142,79 @@
   </section>
 
   <!-- ═══ COMO FUNCIONA ═══ -->
-  <section class="como-funciona" id="como-funciona">
+  <section class="como-funciona" id="como-funciona" aria-labelledby="como-funciona-heading">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Como Funciona</h2>
+        <h2 id="como-funciona-heading" class="section-title">Como Funciona</h2>
       </div>
       <div class="passos-grid">
-        <div class="passo fade-in">
+        <article class="passo fade-in">
           <div class="passo-num">01</div>
           <h3>Agendou</h3>
           <p>Escolha o horário pelo WhatsApp. Sem filas, sem espera.</p>
-        </div>
-        <div class="passo fade-in delay-1">
+        </article>
+        <article class="passo fade-in delay-1">
           <div class="passo-num">02</div>
           <h3>Confirmamos</h3>
           <p>Receba a confirmação imediata. Seu tempo é garantido.</p>
-        </div>
-        <div class="passo fade-in delay-2">
+        </article>
+        <article class="passo fade-in delay-2">
           <div class="passo-num">03</div>
           <h3>Apareça</h3>
           <p>Chegue no horário marcado e aproveite a experiência.</p>
-        </div>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- ═══ DEPOIMENTOS ═══ -->
-  <section class="depoimentos" id="depoimentos">
+  <section class="depoimentos" id="depoimentos" aria-labelledby="depoimentos-heading">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">O que dizem</h2>
+        <h2 id="depoimentos-heading" class="section-title">O que dizem</h2>
       </div>
       <div class="depoimentos-grid">
-        <div class="depo-card fade-in">
-          <div class="depo-stars">★★★★★</div>
+        <article class="depo-card fade-in">
+          <div class="depo-stars" aria-label="Avaliação: 5 estrelas">★★★★★</div>
           <p class="depo-texto">"Finalmente uma barbearia que respeita meu tempo. Chego, sou atendido e saio satisfeito. O atendimento é impecável."</p>
           <div class="depo-autor">
-            <div class="depo-avatar">M</div>
+            <div class="depo-avatar" aria-hidden="true">M</div>
             <div class="depo-info">
               <h4>Marcelo Costa</h4>
               <p>Advogado</p>
             </div>
           </div>
-        </div>
-        <div class="depo-card fade-in delay-1">
-          <div class="depo-stars">★★★★★</div>
+        </article>
+        <article class="depo-card fade-in delay-1">
+          <div class="depo-stars" aria-label="Avaliação: 5 estrelas">★★★★★</div>
           <p class="depo-texto">"O ambiente é sofisticado sem ser pretensioso. O corte ficou perfeito e a barba, modelada com precisão. Recomendo."</p>
           <div class="depo-autor">
-            <div class="depo-avatar">R</div>
+            <div class="depo-avatar" aria-hidden="true">R</div>
             <div class="depo-info">
               <h4>Rafael Santos</h4>
               <p>Arquiteto</p>
             </div>
           </div>
-        </div>
-        <div class="depo-card fade-in delay-2">
-          <div class="depo-stars">★★★★★</div>
+        </article>
+        <article class="depo-card fade-in delay-2">
+          <div class="depo-stars" aria-label="Avaliação: 5 estrelas">★★★★★</div>
           <p class="depo-texto">"Há tempos procurava um lugar assim. Profissionalismo, pontualidade e um resultado que realmente faz diferença."</p>
           <div class="depo-autor">
-            <div class="depo-avatar">L</div>
+            <div class="depo-avatar" aria-hidden="true">L</div>
             <div class="depo-info">
               <h4>Lucas Ferreira</h4>
               <p>Empresário</p>
             </div>
           </div>
-        </div>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- ═══ CTA FINAL ═══ -->
-  <section class="cta-final">
+  <section class="cta-final" aria-labelledby="cta-heading">
     <div class="container">
-      <h2>Sua próxima semana começa com um bom corte.</h2>
+      <h2 id="cta-heading">Sua próxima semana começa com um bom corte.</h2>
       <p>Não deixe para depois. Agende seu horário agora e transforme sua aparência.</p>
       <a href="#" data-whatsapp-link class="btn" target="_blank" rel="noopener noreferrer" aria-label="Agendar pelo WhatsApp">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -215,8 +225,10 @@
     </div>
   </section>
 
+  </main>
+
   <!-- ═══ RODAPÉ ═══ -->
-  <footer>
+  <footer aria-label="Rodapé">
     <div class="footer-content">
       <div class="footer-section">
         <h4>Barbearia Noir</h4>
@@ -226,7 +238,7 @@
         <h4>Endereço</h4>
         <p data-address></p>
         <div class="footer-map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.123456789!2d-48.123456789!3d-22.123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDAnMjMuNCJTIDQ4wrA3JzI0LjQiVw!5e0!3m2!1spt-BR!2sbr!4v1234567890" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.123456789!2d-48.123456789!3d-22.123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjLCsDAnMjMuNCJTIDQ4wrA3JzI0LjQiVw!5e0!3m2!1spt-BR!2sbr!4v1234567890" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Mapa de localização da Barbearia Noir"></iframe>
         </div>
       </div>
       <div class="footer-section">
@@ -254,8 +266,8 @@
   </a>
 
   <!-- JS -->
-  <script src="js/config.js"></script>
-  <script src="js/engine.js"></script>
+  <script src="js/config.js?v=1.0.0" defer></script>
+  <script src="js/engine.js?v=1.0.0" defer></script>
 
 </body>
 </html>

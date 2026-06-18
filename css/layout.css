@@ -71,7 +71,7 @@
   border: 1px solid var(--border-accent);
   padding: 32px;
   border-radius: 8px;
-  transition: all 0.3s ease;
+  transition: border-color 0.3s ease, transform 0.3s ease;
 }
 
 .servico-card:hover {
@@ -157,7 +157,7 @@
 }
 
 .passo-num {
-  font-family: 'Cormorant', serif;
+  font-family: 'Cormorant', 'Cormorant-Fallback', 'Georgia', 'Times New Roman', serif;
   font-size: 4rem;
   font-weight: 700;
   color: var(--accent);
@@ -223,7 +223,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Cormorant', serif;
+  font-family: 'Cormorant', 'Cormorant-Fallback', 'Georgia', 'Times New Roman', serif;
   font-size: 1.5rem;
   font-weight: 600;
   color: var(--bg);
@@ -302,6 +302,12 @@ footer {
 
 .footer-section a:hover {
   color: var(--accent);
+}
+
+.footer-section a {
+  padding: 12px 16px;
+  min-height: 44px;
+  display: inline-block;
 }
 
 .footer-bottom {
@@ -397,7 +403,7 @@ footer {
 }
 
 .stat-val {
-  font-family: 'Cormorant', serif;
+  font-family: 'Cormorant', 'Cormorant-Fallback', 'Georgia', 'Times New Roman', serif;
   font-size: 3.5rem;
   font-weight: 700;
   color: var(--accent);
@@ -418,6 +424,8 @@ footer {
   right: 30px;
   width: 56px;
   height: 56px;
+  min-width: 56px;
+  min-height: 56px;
   background: #25D366;
   border-radius: 50%;
   display: flex;
@@ -425,7 +433,7 @@ footer {
   justify-content: center;
   box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
   z-index: 999;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .whatsapp-float:hover {

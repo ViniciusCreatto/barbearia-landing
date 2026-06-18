@@ -30,10 +30,14 @@ function injectContactInfo() {
 
   // Inject hours
   const hoursElements = document.querySelectorAll('[data-hours]');
-  const hoursText = `Segunda a Sexta: ${SITE_CONFIG.horario.semana}<br>Sábado: ${SITE_CONFIG.horario.sabado}<br>Domingo: Fechado`;
+  const hoursHtml = `
+    <li>Segunda a Sexta: ${SITE_CONFIG.horario.semana}</li>
+    <li>Sábado: ${SITE_CONFIG.horario.sabado}</li>
+    <li>Domingo: Fechado</li>
+  `;
   
   hoursElements.forEach(el => {
-    el.innerHTML = hoursText;
+    el.innerHTML = hoursHtml;
   });
 }
 
@@ -97,14 +101,31 @@ function initMobileMenu() {
   const links = document.querySelector('.navbar-links');
   
   toggle.addEventListener('click', function() {
-    links.classList.toggle('active');
+    const isActive = links.classList.toggle('active');
+    toggle.setAttribute('aria-expanded', isActive);
+    toggle.setAttribute('aria-label', isActive ? 'Fechar menu de navegação' : 'Abrir menu de navegação');
+    if (isActive) {
+      links.querySelector('a').focus();
+    }
   });
 
   // Close menu when clicking a link
   links.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', function() {
       links.classList.remove('active');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Abrir menu de navegação');
     });
+  });
+
+  // Close menu on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && links.classList.contains('active')) {
+      links.classList.remove('active');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Abrir menu de navegação');
+      toggle.focus();
+    }
   });
 }
 
