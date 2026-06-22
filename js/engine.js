@@ -1,4 +1,3 @@
-// Engine.js - Dynamic content injection and interactions
 
 document.addEventListener('DOMContentLoaded', function() {
   injectWhatsAppLinks();
@@ -20,7 +19,6 @@ function injectWhatsAppLinks() {
 }
 
 function injectContactInfo() {
-  // Inject address
   const addressElements = document.querySelectorAll('[data-address]');
   const addressText = `${SITE_CONFIG.endereco.rua}<br>${SITE_CONFIG.endereco.bairro}<br>${SITE_CONFIG.endereco.cidade}<br>CEP ${SITE_CONFIG.endereco.cep}`;
   
@@ -28,7 +26,6 @@ function injectContactInfo() {
     el.innerHTML = addressText;
   });
 
-  // Inject hours
   const hoursElements = document.querySelectorAll('[data-hours]');
   const hoursHtml = `
     <li>Segunda a Sexta: ${SITE_CONFIG.horario.semana}</li>
@@ -62,21 +59,20 @@ function injectInstagramLinks() {
   });
 }
 
-// Navbar scroll effect
 function initNavbarScroll() {
   const navbar = document.querySelector('.navbar');
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.navbar-links a[href^="#"]');
   
   window.addEventListener('scroll', function() {
-    // Toggle scrolled class
+    // 50px de threshold, testei uns valores até ficar suave
     if (window.scrollY > 50) {
       navbar.classList.add('scrolled');
     } else {
       navbar.classList.remove('scrolled');
     }
     
-    // Update active link based on scroll position
+    // offset de 200px pra ativar o link antes de chegar na seção
     let current = '';
     sections.forEach(section => {
       const sectionTop = section.offsetTop;
@@ -95,7 +91,6 @@ function initNavbarScroll() {
   });
 }
 
-// Mobile menu toggle
 function initMobileMenu() {
   const toggle = document.querySelector('.navbar-toggle');
   const links = document.querySelector('.navbar-links');
@@ -109,7 +104,6 @@ function initMobileMenu() {
     }
   });
 
-  // Close menu when clicking a link
   links.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', function() {
       links.classList.remove('active');
@@ -118,7 +112,6 @@ function initMobileMenu() {
     });
   });
 
-  // Close menu on Escape key
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && links.classList.contains('active')) {
       links.classList.remove('active');
@@ -129,12 +122,11 @@ function initMobileMenu() {
   });
 }
 
-// Scroll animations with IntersectionObserver
 function initScrollAnimations() {
   const observerOptions = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.1
+    /* threshold baixo pra disparar a animação um pouco antes do elemento entrar */
   };
 
   const observer = new IntersectionObserver(function(entries, observer) {
@@ -147,8 +139,8 @@ function initScrollAnimations() {
     });
   }, observerOptions);
 
-  // Initially hide fade-in elements
   const fadeElements = document.querySelectorAll('.fade-in');
+  // gambiarra, mas resolve por agora
   fadeElements.forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';

@@ -15,11 +15,6 @@
   --spacing-section: 100px;
 }
 
-/* ═══════════════════════════════════════════════════════════════════════════════
-   FONT FACE COM SIZE-ADJUST PARA EVITAR CLS
-   ═══════════════════════════════════════════════════════════════════════════════ */
-
-/* Cormorant - Fonte serif para headings */
 @font-face {
   font-family: 'Cormorant-Fallback';
   src: local('Georgia'), local('Times New Roman');
@@ -28,7 +23,6 @@
   descent-override: 110%;
 }
 
-/* Inter - Fonte sans-serif para body */
 @font-face {
   font-family: 'Inter-Fallback';
   src: local('Arial'), local('Helvetica'), local('sans-serif');
@@ -60,7 +54,6 @@ body {
   top: 0;
 }
 
-/* Classe para esconder elementos visualmente mas manter acessível para leitores de tela */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -108,7 +101,7 @@ a {
 
 .btn:hover {
   background-color: var(--accent-hover);
-  color: #000000 !important;
+  color: #000000 !important; /* força preto no hover, specificity tava dando problema */
   transform: translateY(-2px);
 }
 
@@ -117,7 +110,6 @@ a {
   height: 20px;
 }
 
-/* ═══ NAVBAR ═══ */
 .navbar {
   position: fixed;
   top: 0;
