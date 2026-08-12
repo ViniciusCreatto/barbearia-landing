@@ -12,6 +12,5 @@ const SITE_CONFIG = {
     semana: "9h às 20h",
     sabado: "9h às 18h"
   },
-  instagram: "barbearianoir",
-  ano: "2026"
+  instagram: "barbearianoir"
 };

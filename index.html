@@ -10,24 +10,33 @@
   <meta property="og:title" content="Barbearia Noir | Elegância Urbana"/>
   <meta property="og:description" content="Corte masculino de excelência em Piracicaba/SP. Atendimento por hora marcada, sem fila."/>
   <meta property="og:type" content="website"/>
-  <meta property="og:image" content="og-image.svg"/>
-  <meta property="og:url" content=""/>
+  <meta property="og:image" content="og-image.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <!-- TODO: trocar pela URL final após o deploy -->
+  <meta property="og:url" content="https://barbearia-noir.vercel.app/"/>
   <meta name="twitter:card" content="summary_large_image"/>
   
   <meta name="theme-color" content="#111111"/>
   
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  
-  <!-- preconnect fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- google fonts - só pesos necessários pra evitar CLS -->
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cormorant:wght@600;700&family=Inter:wght@500;600&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant:wght@600;700&family=Inter:wght@500;600&display=optional"></noscript>
+  <!-- fontes (Cormorant/Inter) hospedadas localmente em assets/fonts, ver css/global.css -->
+  <link rel="preload" as="font" href="assets/fonts/cormorant-600.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="assets/fonts/inter-500.woff2" type="font/woff2" crossorigin>
 
   <link rel="stylesheet" href="css/global.css?v=1.0.0">
   <link rel="stylesheet" href="css/layout.css?v=1.0.0">
+
+  <!-- preload da imagem de fundo do hero (LCP) -->
+  <link rel="preload" as="image" href="assets/images/hero-bg.jpg" media="(min-width: 769px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/images/hero-bg-mobile.jpg" media="(max-width: 768px)" fetchpriority="high">
+
+  <!--
+    Fotos de assets/images/ (hero-bg, hero-bg-mobile, ambiente-bg, ambiente-bg-mobile):
+    "Barber cutting hair with comb" e "Young men with trendy haircut at barber shop"
+    por Nenad Stojkovic, Wikimedia Commons, licença CC BY 2.0 (https://creativecommons.org/licenses/by/2.0)
+  -->
 </head>
 <body>
 

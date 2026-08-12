@@ -40,8 +40,9 @@ function injectContactInfo() {
 
 function injectFooterYear() {
   const yearElements = document.querySelectorAll('[data-year]');
+  const currentYear = new Date().getFullYear();
   yearElements.forEach(el => {
-    el.textContent = SITE_CONFIG.ano;
+    el.textContent = currentYear;
   });
 }
 

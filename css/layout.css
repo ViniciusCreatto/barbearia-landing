@@ -7,6 +7,17 @@
   padding: 60px 20px;
   position: relative;
   clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%); /* quebra em telas muito pequenas, ajustei o % no media query */
+  background-color: var(--bg);
+  background-image: linear-gradient(180deg, rgba(17, 17, 17, 0.78) 0%, rgba(17, 17, 17, 0.6) 45%, rgba(17, 17, 17, 0.9) 100%), url('../assets/images/hero-bg.jpg');
+  background-size: cover;
+  background-position: center 35%;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    background-image: linear-gradient(180deg, rgba(17, 17, 17, 0.78) 0%, rgba(17, 17, 17, 0.6) 45%, rgba(17, 17, 17, 0.9) 100%), url('../assets/images/hero-bg-mobile.jpg');
+  }
 }
 
 .hero-content {
@@ -59,7 +70,7 @@
 
 .servicos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 24px;
   max-width: 1000px;
   margin: 0 auto;
@@ -98,9 +109,19 @@
 
 .ambiente {
   padding: 120px 20px;
-  background: linear-gradient(180deg, var(--bg) 0%, #1a1a1a 50%, var(--bg) 100%);
+  background-color: var(--bg);
+  background-image: linear-gradient(180deg, var(--bg) 0%, rgba(17, 17, 17, 0.6) 18%, rgba(17, 17, 17, 0.6) 82%, var(--bg) 100%), url('../assets/images/ambiente-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   text-align: center;
   position: relative;
+}
+
+@media (max-width: 768px) {
+  .ambiente {
+    background-image: linear-gradient(180deg, var(--bg) 0%, rgba(17, 17, 17, 0.6) 18%, rgba(17, 17, 17, 0.6) 82%, var(--bg) 100%), url('../assets/images/ambiente-bg-mobile.jpg');
+  }
 }
 
 .ambiente::before {
@@ -319,7 +340,10 @@ footer {
     padding: 40px 20px;
   }
 
-  .servicos,
+  .servicos {
+    padding: 60px 20px 100px;
+  }
+
   .ambiente,
   .como-funciona,
   .depoimentos,
@@ -430,6 +454,22 @@ footer {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+@media (max-width: 768px) {
+  .whatsapp-float {
+    bottom: 20px;
+    right: 20px;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    min-height: 48px;
+  }
+
+  .whatsapp-float svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
 .whatsapp-float:hover {
   transform: scale(1.1);
   box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
@@ -445,7 +485,7 @@ footer {
 .footer-map {
   max-width: 1000px;
   margin: 40px auto;
-  padding: 0 20px;
+  padding: 20px 20px 0;
   border-radius: 8px;
   overflow: hidden;
   border: 1px solid var(--border-accent);
