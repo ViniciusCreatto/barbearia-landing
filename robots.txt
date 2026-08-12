@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://barbearia-noir.vercel.app/sitemap.xml
+Sitemap: https://barbearia-landing-tau.vercel.app/sitemap.xml
