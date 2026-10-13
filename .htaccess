@@ -1,4 +1,4 @@
-# Mesmos cabeçalhos do vercel.json (produção). Mudou um, mude o outro.
+# Mesmos cabeçalhos do _headers (produção, Cloudflare). Mudou um, mude o outro.
 
 <IfModule mod_headers.c>
   # CSS, JS, fontes e imagens: cache imutável de 1 ano (os links levam ?v=)
@@ -6,7 +6,7 @@
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
 
-  # HTML sempre revalidado, como a Vercel faz por padrão
+  # HTML sempre revalidado, como o Cloudflare faz por padrão
   <FilesMatch "\.html$">
     Header set Cache-Control "no-cache"
   </FilesMatch>

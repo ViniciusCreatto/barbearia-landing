@@ -1,0 +1,15 @@
+// Deploy no Cloudflare (Workers com arquivos estáticos). Sem build: a pasta
+// do projeto é publicada como está, menos o que estiver no .assetsignore.
+// Cabeçalhos de segurança e cache ficam no _headers.
+{
+  "name": "barbearia-noir",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": ".",
+    "html_handling": "drop-trailing-slash"
+  },
+  // O domínio orbitsweb.com.br precisa estar no DNS do Cloudflare.
+  "routes": [
+    { "pattern": "barbearia.orbitsweb.com.br", "custom_domain": true }
+  ]
+}

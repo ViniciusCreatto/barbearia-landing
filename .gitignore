@@ -14,8 +14,9 @@ tools/
 Thumbs.db
 desktop.ini
 
-# Vercel CLI
-.vercel/
+# Wrangler (Cloudflare)
+.wrangler/
+.dev.vars
 
 # Dependências e variáveis de ambiente (o site não usa, mas não devem subir)
 node_modules/

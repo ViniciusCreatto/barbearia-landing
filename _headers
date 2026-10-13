@@ -1,0 +1,22 @@
+# Cabeçalhos de produção (Cloudflare). O .htaccess tem os mesmos para o
+# Apache local: mudou um, mude o outro. Este arquivo não é publicado.
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self'; frame-src https://www.google.com https://maps.google.com; connect-src 'none'; base-uri 'self'; form-action 'none'; frame-ancestors 'self';
+  Strict-Transport-Security: max-age=31536000
+  Permissions-Policy: geolocation=(), camera=(), microphone=(), payment=()
+
+# CSS, JS, fontes e imagens: cache imutável de 1 ano (os links levam ?v=)
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+/favicon.svg
+  Cache-Control: public, max-age=31536000, immutable
+/og-image.jpg
+  Cache-Control: public, max-age=31536000, immutable

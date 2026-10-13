@@ -1,0 +1,21 @@
+# Só o site é publicado. Fica de fora a configuração e tudo o que existe
+# apenas nesta máquina (vale para um `wrangler deploy` feito daqui).
+.git
+.gitignore
+.assetsignore
+wrangler.jsonc
+.wrangler
+.dev.vars
+.env*
+node_modules
+
+CLAUDE.md
+.claude
+README.md
+.htaccess
+tools
+.vscode
+.idea
+Thumbs.db
+desktop.ini
+.DS_Store

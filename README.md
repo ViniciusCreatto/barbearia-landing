@@ -2,7 +2,7 @@
 
 Landing page de uma barbearia masculina em Piracicaba/SP que só atende com hora marcada. O visitante abre o site no celular, vê os serviços e os preços e agenda pelo WhatsApp sem precisar ligar nem enfrentar fila.
 
-**Site no ar:** https://barbearia-landing-tau.vercel.app/
+**Site no ar:** https://barbearia.orbitsweb.com.br/
 
 > A Barbearia Noir é um projeto de portfólio. A barbearia, o endereço, os preços e os tempos dos serviços são fictícios. O próprio rodapé do site avisa isso.
 
@@ -36,7 +36,8 @@ O único recurso externo é o mapa do Google Maps, num iframe.
 ├── assets/
 │   ├── fonts/          # Cormorant e Inter, hospedadas no próprio site
 │   └── images/         # fotos do hero e do espaço (versão desktop e mobile)
-├── vercel.json         # cabeçalhos de segurança e cache em produção
+├── wrangler.jsonc      # configuração do deploy no Cloudflare
+├── _headers            # cabeçalhos de segurança e cache em produção
 ├── .htaccess           # os mesmos cabeçalhos para o Apache local
 ├── robots.txt
 ├── sitemap.xml
@@ -70,7 +71,7 @@ O site manda cabeçalhos de segurança, entre eles uma CSP bem fechada. Ela só 
 
 CSS, JS, fontes e imagens ficam em cache por um ano. Para quem já visitou receber as mudanças, cada arquivo leva um `?v=` que sobe a cada alteração.
 
-Os cabeçalhos ficam em dois lugares: no `vercel.json` para a produção e no `.htaccess` para o Apache local. Quando mudo um, mudo o outro.
+Os cabeçalhos ficam em dois lugares: no `_headers` para a produção e no `.htaccess` para o Apache local. Quando mudo um, mudo o outro.
 
 ### Acessibilidade
 
@@ -92,7 +93,7 @@ Para testar com os mesmos cabeçalhos da produção, sirva a pasta pelo Apache (
 
 ## Publicação
 
-O site está hospedado na Vercel. O `.vercelignore` deixa de fora o que o site não usa, como este README e o `.htaccess`.
+O site está hospedado no Cloudflare, como Worker de arquivos estáticos (`wrangler.jsonc`), no endereço `barbearia.orbitsweb.com.br`. O `.assetsignore` deixa de fora o que o site não usa, como este README e o `.htaccess`.
 
 Se o domínio mudar, troque a URL em três lugares: nas tags `og:` e `twitter:` do `index.html`, no `robots.txt` e no `sitemap.xml`.
 
