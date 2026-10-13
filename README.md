@@ -4,7 +4,7 @@ Landing page de uma barbearia masculina em Piracicaba/SP que só atende com hora
 
 **Site no ar:** https://barbearia.orbitsweb.com.br/
 
-> A Barbearia Noir é um projeto de portfólio. A barbearia, o endereço, os preços e os tempos dos serviços são fictícios. O próprio rodapé do site avisa isso.
+> A Barbearia Noir é um projeto de portfólio. A barbearia, o endereço, os preços e os tempos dos serviços são fictícios. O site avisa isso numa faixa fixa no topo e no rodapé.
 
 ## A ideia
 

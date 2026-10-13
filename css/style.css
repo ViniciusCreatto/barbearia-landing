@@ -22,6 +22,7 @@
   --spacing-section: 100px;
   --spacing-section-lg: 120px;
   --gutter: 20px;
+  --notice-h: 32px;
   --container: 1200px;
   --container-narrow: 1000px;
   --container-text: 800px;
@@ -161,9 +162,28 @@ a {
   fill: currentColor;
 }
 
-.navbar {
+/* faixa fixa no topo: avisa que o projeto é fictício. Uma linha só, porque a navbar fica logo abaixo dela */
+.demo-notice {
   position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: var(--notice-h);
+  line-height: var(--notice-h);
+  padding: 0 var(--gutter);
+  background: var(--accent);
+  color: var(--bg);
+  font-size: 0.8rem;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.navbar {
+  position: fixed;
+  top: var(--notice-h);
   left: 0;
   right: 0;
   z-index: 1000;
@@ -505,6 +525,12 @@ a {
 }
 
 @media (max-width: 768px) {
+  /* em 320px a frase só cabe inteira com fonte e margem menores */
+  .demo-notice {
+    padding: 0 12px;
+    font-size: 0.75rem;
+  }
+
   .navbar-links {
     position: fixed;
     top: 0;
